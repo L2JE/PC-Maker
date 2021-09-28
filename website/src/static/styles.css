@@ -1,0 +1,9 @@
+*{
+    font-family: sans-serif;
+}
+
+h1{
+    background-color: hsl(360, 50%, 30%);
+    text-align: center;
+    color: #ffff;
+}

@@ -1,0 +1,22 @@
+{
+  "name": "website",
+  "version": "0.0.1",
+  "description": "This is the front-end of the web application",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build-go-index": "go build -o build/index src/index.go",
+
+    "build-serv-release": "go build -ldflags \"-s -w\" -o build/index src/index.go",
+    "minify-html": "html-minifier --collapse-whitespace --case-sensitive --remove-comments --remove-tag-whitespace --file-ext html --input-dir src/static --output-dir build/static",
+    "minify-css": "cleancss --batch --batch-suffix '' -O1 'all:on;specialComments:0' --output build/static src/static/users/styles.css",
+    "build-release": "npm-run-all --parallel build-go-index minify-html minify-css"
+  },
+  "author": "Leonel Juarez",
+  "license": "ISC",
+  "devDependencies": {
+    "html-minifier": "^4.0.0",
+    "clean-css-cli": "^5.0.0",
+    "npm-run-all": "^4.0.0",
+    "foreach-cli": "^1.0.0"
+  }
+}
